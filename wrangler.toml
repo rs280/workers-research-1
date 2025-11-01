@@ -1,0 +1,33 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "workers-research-1"
+main = "src/index.tsx"
+compatibility_date = "2025-01-28"
+compatibility_flags = [ "nodejs_compat" ]
+workers_dev = true
+
+[observability]
+enabled = true
+
+[ai]
+binding = "AI"
+
+[build]
+command = "npm run build-css"
+watch_dir = "./src"
+
+[assets]
+directory = "./src/static/"
+
+[[workflows]]
+name = "workers-reseacher-workflow"
+binding = "RESEARCH_WORKFLOW"
+class_name = "ResearchWorkflow"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "workers-research"
+database_id = "0283e363-393b-4f93-8d3b-0e3ef04ac407"
+preview_database_id = "db6662eb-c46e-461f-9bce-05807b6dfa98"
+
+[browser]
+binding = "BROWSER"
